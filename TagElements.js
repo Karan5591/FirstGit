@@ -21,4 +21,8 @@ items[2].style.backgroundColor='Green';
 for(var i=0;i<items.length;i++)
 {
     items[i].style.fontWeight='bold';
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dc36a63b1f1196b1d3fb39acbea7116d913f67ae
