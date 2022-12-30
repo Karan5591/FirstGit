@@ -15,11 +15,25 @@ const btn=document.querySelector('.btn');
 
   btn.addEventListener('click', e =>{
     e.preventDefault();
-    let myobj={
-        name: document.getElementById('name').value,
+    
+    var name1=document.getElementById('name').value;
+     myobj={
+        name: name1,
         mail: document.getElementById('email').value
     }
-    myobj_serialized=JSON.stringify(myobj);
+    myobj=JSON.stringify(myobj);
+var obj1=document.getElementById('email').value;
 
-    localStorage.setItem('myobj', myobj_serialized);
+    localStorage.setItem(obj1, myobj);
+
+    //create and showing the details below 
+
+    var newItem=document.createElement('li');
+    var text=document.getElementsByClassName('naam');
+    
+    var text1=document.createTextNode(text[0].value+" "+text[1].value);
+    newItem.appendChild(text1);
+    document.getElementById("item1").appendChild(newItem);
+            
   });
+
