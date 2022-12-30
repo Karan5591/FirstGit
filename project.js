@@ -13,27 +13,76 @@ const btn=document.querySelector('.btn');
 
   //Storing data as an object
 
-  btn.addEventListener('click', e =>{
+  btn.addEventListener('click',e=>
+{
     e.preventDefault();
-    
-    var name1=document.getElementById('name').value;
-     myobj={
-        name: name1,
-        mail: document.getElementById('email').value
+    var userName=document.getElementById('name').value;
+    var userEmail=document.getElementById('email').value;
+
+    var myobj={
+        name:userName,
+        mail:userEmail
     }
     myobj=JSON.stringify(myobj);
-var obj1=document.getElementById('email').value;
+    localStorage.setItem(userEmail,myobj);
 
-    localStorage.setItem(obj1, myobj);
-
-    //create and showing the details below 
-
-    var newItem=document.createElement('li');
-    var text=document.getElementsByClassName('naam');
+    //ADDING NODE TO SHOW ELEMENT.
     
-    var text1=document.createTextNode(text[0].value+" "+text[1].value);
-    newItem.appendChild(text1);
-    document.getElementById("item1").appendChild(newItem);
-            
-  });
 
+    var newNode=document.createElement('li');
+    newNode.id=userEmail;
+    var check=document.getElementById(userEmail)
+    if(check!=null)
+    {
+        var list=document.getElementById("item1");
+        console.log(list);
+        list.removeChild(check);
+    }
+    var text=document.createTextNode(userName+" "+userEmail);
+    newNode.appendChild(text);
+    document.getElementById("item1").appendChild(newNode);
+    
+    var DelButton=document.createElement("button");
+
+    DelButton.className=userEmail;
+    DelButton.appendChild(document.createTextNode("delete"));
+    document.getElementById(userEmail).appendChild(DelButton);
+    
+
+        var EditButton=document.createElement("button");
+    EditButton.className=userEmail;
+    EditButton.appendChild(document.createTextNode("Edit"));
+    document.getElementById(userEmail).appendChild(EditButton);
+});
+
+ul.addEventListener('click', (event) => 
+{
+    if(event.target.tagName === 'BUTTON') 
+    {
+      const button = event.target;
+      const li = button.parentNode;
+      const ul = li.parentNode;
+      
+      if(button.textContent === 'delete') 
+      {
+        var char1=ul.removeChild(li);
+        
+        for(var i=0;i<localStorage.length;i++)
+   {
+    if ((localStorage.key(i))==char1.id)
+    {
+        localStorage.removeItem(char1.id);
+    }
+   }
+     }
+     else if(button.textContent === 'Edit') 
+     {
+        const span = li.firstElementChild;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = li.textContent;
+        button.textContent = 'save';
+      } 
+      
+    }
+    });
