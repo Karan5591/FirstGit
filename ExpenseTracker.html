@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Expense Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="ExpenseTracker.css">
+    
+</head>
+<body>
+    <section class="container">
+        <form id="my-form">
+          <h2>Expense Tracker</h2>
+          <div class="msg"></div>
+          <div>
+            <label for="Amount">Expense Amount</label>
+            <input type="text" id="Amount"></input>
+          </div>
+          <div>
+            <label for="Description">Description</label> 
+    <input type="text" id="Description"></input>
+            
+          </div>
+          
+         <div>
+            <label for="Category">Choose a Category</label>
+            <select name="Category" id="Category">
+                <option value="Movie" >Movie</option>
+                <option value="bill" >bill</option>
+                <option value="electricity" >electricity</option>
+                <option value="food" >food</option> 
+            </select>
+         </div>
+        <button type="submit" class="btn" value="Submit">Submit</button>
+        </form>
+     <ul class="items" id="item1"></ul>
+</section>
+
+    <script src="ExpenseTracker.js"></script>
+
+</body>
+</html>
