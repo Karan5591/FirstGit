@@ -5,7 +5,7 @@ const btn=document.querySelector('.btn');
 
 const ul = document.querySelector('#item1');
 
-window.onload=function()
+window.addEventListener("DOMContentLoaded",()=>
 {
     
         axios.get("https://crudcrud.com/api/1fcba5d83d0c4575bdc8c7a79c4aaf9a/AppointmentData")
@@ -42,7 +42,7 @@ window.onload=function()
         .catch((response)=>console.log(response));
 
         
-}
+})
 
 btn.addEventListener('click',e=>
 {
@@ -52,10 +52,10 @@ btn.addEventListener('click',e=>
 
     var myobj={
         name:userName,
-        mail:userEmail
+        email:userEmail
     }
     
-    //localStorage.setItem(userEmail,myobj);
+    
     axios.post("https://crudcrud.com/api/1fcba5d83d0c4575bdc8c7a79c4aaf9a/AppointmentData", myobj)
     .then((data)=>console.log(data))
     .catch((data)=>console.log(data));
